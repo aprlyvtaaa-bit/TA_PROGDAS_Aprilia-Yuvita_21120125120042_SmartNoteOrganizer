@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Deadline Reminder (OOP)</title>
+    <title>Smart Note Organizer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1 class="title">Smart Deadline Reminder System</h1>
+<h1 class="title">Smart Note Organizer</h1>
 <p class="subtitle">Plan smarter, work calmer, finish stronger</p>
 
 <div class="container">
@@ -17,6 +17,7 @@
         <h2>Mini Calendar</h2>
         <div id="monthLabel" style="font-weight:bold;"></div>
         <div class="calendar-grid" id="calendarDates"></div>
+
         <div class="section-title">Activity</div>
         <div id="activity"></div>
     </div>
@@ -25,8 +26,6 @@
     <div class="card main-card">
         <h2>Total tugas: <span id="totalCount">0</span></h2>
         <p>Average Progress: <span id="avgPercent">0%</span></p>
-
-        <button id="btnNew" class="btn-primary">+ New Task</button>
 
         <form id="taskForm">
             <input type="hidden" id="taskIndex" value="-1">

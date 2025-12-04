@@ -1,7 +1,7 @@
 /* ===========================================================
    MODULE 1 — VARIABLES, TIPE DATA, OPERATOR, INPUT/OUTPUT
    =========================================================== */
-const APP_TITLE = "Smart Deadline Reminder";
+const APP_TITLE = "Smart Note Organizer";
 let tasks = []; 
 const STORAGE_KEY = "sd_tasks_v4";
 
@@ -95,25 +95,46 @@ function renderTasks() {
         return;
     }
 
-    tasks.forEach((t, i) => {
-        const row = document.createElement("div");
-        row.className = "task";
-        row.innerHTML = `
-            <div>
-                <b>${t.getTitle()}</b>
-                <div style="color:#444">${priorityBadge(t.getPriority())}</div>
-                <div style="color:#6b4d4d">${t.getNotes()}</div>
-            </div>
-            <div style="text-align:right">
-                <div>${t.getProgress()}%</div>
-                <button class="btn-primary" onclick="editTask(${i})">Edit</button>
-                <button class="btn-secondary" onclick="deleteTask(${i})">Hapus</button>
-            </div>
-        `;
-        box.appendChild(row);
+tasks.forEach((t, i) => {
+    const row = document.createElement("div");
+    row.className = "task";
+
+    // Format deadline agar lebih rapi
+    const d = new Date(t.getDeadline());
+    const formattedDeadline = d.toLocaleString("id-ID", {
+        dateStyle: "medium",
+        timeStyle: "short"
     });
 
-    updateSummary();
+    row.innerHTML = `
+        <div>
+            <b>${t.getTitle()}</b>
+
+            <!-- PRIORITY -->
+            <div style="color:#444; margin-top:3px;">
+                ${priorityBadge(t.getPriority())}
+            </div>
+
+            <!-- DEADLINE (baru ditambahkan) -->
+            <div style="color:#b11; margin-top:3px; font-size:14px;">
+                ⏳ Deadline: <b>${formattedDeadline}</b>
+            </div>
+
+            <!-- NOTES -->
+            <div style="color:#6b4d4d; margin-top:4px;">
+                ${t.getNotes()}
+            </div>
+        </div>
+
+        <div style="text-align:right">
+            <div style="font-weight:bold; margin-bottom:6px;">${t.getProgress()}%</div>
+            <button class="btn-primary" onclick="editTask(${i})">Edit</button>
+            <button class="btn-secondary" onclick="deleteTask(${i})">Hapus</button>
+        </div>
+    `;
+
+    box.appendChild(row);
+});
 }
 
 /* ===========================================================
@@ -198,8 +219,8 @@ function resetForm() {
 const quotes = [
     "Sedikit tiap hari lebih baik daripada menunda.",
     "Kerjakan apa yang bisa kamu selesaikan hari ini.",
-    "Fokus pada progres, bukan pada kesempurnaan.",
-    "Hari ini mungkin berat, tapi menyerah takkan membuatnya lebih ringan.",
+    "Progres kecil tetaplah progres.",
+    "Fokus pada langkah, bukan jarak.",
     "Disiplin hari ini = kebebasan esok hari."
 ];
 
@@ -251,3 +272,10 @@ function renderCalendar() {
     document.getElementById("activity").textContent =
         "Aktif: " + new Date().toLocaleString("id-ID");
 })();
+// ==========================================
+// TOMBOL CANCEL
+// ==========================================
+document.getElementById("btnCancel").addEventListener("click", function () {
+    resetForm();                     // kosongkan form
+    document.getElementById("title").focus(); // cursor kembali ke judul
+});
