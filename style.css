@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #ffecec;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.title {
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: 800;
+    color: #8b3a3a;
+}
+
+.subtitle {
+    margin-top: -10px;
+    color: #b67373;
+}
+
+.container {
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+.calendar-card { width: 250px; }
+.main-card { width: 580px; }
+.summary-card { width: 260px; }
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.calendar-grid button {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.calendar-grid .today {
+    background: #ffbfbf;
+    border: none;
+}
+
+.section-title {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #8b3a3a;
+}
+
+#taskForm input,
+#taskForm select,
+#taskForm textarea {
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #c9a5a5;
+}
+
+.btn-primary {
+    background: #e67c7c;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #ccc;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.task {
+    background: #ffe5e5;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #ffd4d4;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: #ff7d7d;
+}
+
+/* ------------------ QUOTE ------------------ */
+.quote-wrapper {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.quote-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #3a1f1f;
+}
+
+.quote-box {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    color: #5a3b3b;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-top: 8px;
+}

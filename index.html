@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Deadline Reminder (OOP)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 class="title">Smart Deadline Reminder System</h1>
+<p class="subtitle">Plan smarter, work calmer, finish stronger</p>
+
+<div class="container">
+    
+    <!-- ========================= LEFT: CALENDAR ========================= -->
+    <div class="card calendar-card">
+        <h2>Mini Calendar</h2>
+        <div id="monthLabel" style="font-weight:bold;"></div>
+        <div class="calendar-grid" id="calendarDates"></div>
+        <div class="section-title">Activity</div>
+        <div id="activity"></div>
+    </div>
+
+    <!-- ========================= CENTER: MAIN FORM ========================= -->
+    <div class="card main-card">
+        <h2>Total tugas: <span id="totalCount">0</span></h2>
+        <p>Average Progress: <span id="avgPercent">0%</span></p>
+
+        <button id="btnNew" class="btn-primary">+ New Task</button>
+
+        <form id="taskForm">
+            <input type="hidden" id="taskIndex" value="-1">
+
+            <div class="section-title">Judul</div>
+            <input type="text" id="title" placeholder="Nama tugas">
+
+            <div class="section-title">Deadline (tanggal + jam)</div>
+            <input type="datetime-local" id="deadline">
+
+            <div class="section-title">Prioritas</div>
+            <select id="priority">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+
+            <div class="section-title">Progress awal (%)</div>
+            <input type="number" id="progress" min="0" max="100">
+
+            <div class="section-title">Catatan</div>
+            <textarea id="notes" placeholder="Catatan singkat..."></textarea>
+
+            <button class="btn-primary" type="submit">Simpan Tugas</button>
+            <button type="button" id="btnCancel" class="btn-secondary">Cancel</button>
+        </form>
+
+        <h2 class="section-title">Daftar Tugas</h2>
+        <div id="taskList">Tidak ada tugas</div>
+    </div>
+
+    <!-- ========================= RIGHT: SUMMARY + QUOTE ========================= -->
+    <div class="card summary-card">
+        <h2>Ringkasan</h2>
+        <p>Total tugas: <span id="sumCount">0</span></p>
+        <p>Avg progress: <span id="sumAvg">0%</span></p>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <div class="quote-wrapper">
+            <div class="quote-title">Quote Hari Ini</div>
+            <div id="dailyQuote" class="quote-box"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
